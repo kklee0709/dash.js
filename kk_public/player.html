@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dash.js Rocks</title>
+    </head>
+    <body>
+        <div>
+            <video id="videoPlayer" controls="true"></video>
+        </div>
+        <script src="../dist/dash.all.js"></script>
+        <script>
+            (function(){
+//                var url = "http://dash.edgesuite.net/dash264/TestCases/1c/qualcomm/1/MultiRate.mpd";
+                var url = "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd";
+//                var url = "http://dash.edgesuite.net/dash264/TestCases/1a/netflix/exMPD_BIP_TC1.mpd";
+                var context = new Dash.di.DashContext();
+                var player = new MediaPlayer(context);
+                player.startup();
+                player.attachView(document.querySelector("#videoPlayer"));
+                player.attachSource(url);
+            })();
+        </script>
+    </body>
+</html>
